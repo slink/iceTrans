@@ -31,4 +31,4 @@ y0 = [F0, 0, a, 1, phiP0bar, 1, b];
 zeta0 = 0;
 zetaE = 5;
 
-[zetaH y] = ode45(@(zetaH, y) ydiff(zetaH, y, u), [zeta0 zetaE], y0);
+[zetaH y] = ode23s(@(zetaH, y) ydiff(zetaH, y, u), [zeta0 zetaE], y0);
