@@ -174,7 +174,7 @@ Cell[BoxData[{
      SuperscriptBox[
       RowBox[{"Abs", "[", 
        RowBox[{"T0", "-", "T\[Infinity]"}], "]"}], "q"]}]]}], 
-  "\[IndentingNewLine]"}], "\n", 
+  "\n"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"(*", " ", 
    RowBox[{
@@ -466,7 +466,7 @@ Cell[BoxData[
 }, Open  ]]
 },
 WindowSize->{740, 756},
-WindowMargins->{{Automatic, -25}, {Automatic, 44}},
+WindowMargins->{{Automatic, 173}, {Automatic, 27}},
 FrontEndVersion->"8.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (October 5, \
 2011)",
 StyleDefinitions->"Default.nb"
