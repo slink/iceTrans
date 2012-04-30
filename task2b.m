@@ -19,8 +19,8 @@ P = (g1 * rhom0 * (s0 - sinf)) / (rhom * alph * abs(T0 - Tinf)^q);
 Le = Sc / Pr;
 
 % initial guess values for a and b
-a = 0.3;
-b = -1.8;
+a = 0.5; % 0.3;
+b = 0.5; % -1.8;
 
 phiP0bar = b / (Le * (cp * (T0 - Tinf) / hil) * s0 / ((1-s0/1000) * (s0 - sinf)));
 F0 = ((-phiP0bar * cp * (T0 - Tinf))/(hil * (1 - s0 / 1000)));
@@ -31,4 +31,4 @@ y0 = [F0, 0, a, 1, phiP0bar, 1, b];
 zeta0 = 0;
 zetaE = 5;
 
-[zetaH y] = ode23s(@(zetaH, y) ydiff(zetaH, y, u), [zeta0 zetaE], y0);
+[zetaH, y] = shootingMethod(zeta0, zetaE, u, a, b, cp, T0, Tinf, hil, s0, sinf);
