@@ -27,7 +27,7 @@ b = -5.104;
 phiP0bar = b / (Le * (cp * (T0 - Tinf) / hil) * s0 / ((1-s0/1000) * (s0 - sinf)));
 F0 = ((-phiP0bar * cp * (T0 - Tinf))/(hil * (1 - s0 / 1000)));
 
-% sprintf('phiP0bar = %d,\n F0 = %d,\n', -phiP0bar, F0)
+sprintf('phiP0bar = %d,\n F0 = %d,\n', -phiP0bar, F0)
 
 u = {R; A; B; Q; P; Le; q};
 
@@ -40,6 +40,10 @@ dxhat = 1e-4;
 jj = 0;
 n = 500;
 Ns = 20e4;
+
+y = shootingMethodExp(dxhat, y0, Ns, n, u, a, b, cp, T0, Tinf, hil, s0, sinf);
+
+%{
 ysave = zeros(Ns/n,7);
 y = ydiffExp(dxhat, y0, u);
 for ii = 1:Ns
@@ -50,10 +54,9 @@ for ii = 1:Ns
 	end
 	y = ynew;
 end
+%}
 
-break
+%{ 
 plot(zetaH, y(:,2), zetaH, y(:,6))
-legend('')
-
-
 [zetaH, y] = shootingMethod(zeta0, zetaE, u, a, b, cp, T0, Tinf, hil, s0, sinf);
+%}

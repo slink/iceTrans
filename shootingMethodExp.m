@@ -1,13 +1,13 @@
-function [zetaH, y] = shootingMethod(zeta0, zetaE, u, a, b, cp, T0, Tinf, hil, s0, sinf)
-	
+function y = shootingMethodExp(dxhat, y0, Ns, n, u, a, b, cp, T0, Tinf, hil, s0, sinf)
+	% wrap the explicit RK 4 and thus allow for us to then use the shotting method with it
 	Le = u{6};
 	
-	% original values for the a and b passed to the shooting method
 	phiP0bar = b / (Le * (cp * (T0 - Tinf) / hil) * s0 / ((1-s0/1000) * (s0 - sinf)));
 	F0 = ((-phiP0bar * cp * (T0 - Tinf))/(hil * (1 - s0 / 1000)));
 	y0 = [F0, 0, a, 1, phiP0bar, 1, b];
-	[zetaH, y] = ode23s(@(zetaH, y) ydiff(zetaH, y, u), [zeta0 zetaE], y0);
-
+	
+	y = ydiffExpRunner(dxhat,y0,u,Ns,n);
+	
 	% initial errors given the guesses
 	Ea = y(end, 2); 
 	Eb = y(end, 6);
@@ -25,19 +25,22 @@ function [zetaH, y] = shootingMethod(zeta0, zetaE, u, a, b, cp, T0, Tinf, hil, s
 	da = 0.02*a;
 	db = 0.02*b;
 	
+	
 	while sqrt(dEaDa^2 + dEbDb^2) > 10^-5
 
 		% ode for anew (1.02 * a)
 		phiP0barnewA = b / (Le * (cp * (T0 - Tinf) / hil) * s0 / ((1-s0/1000) * (s0 - sinf)));
 		F0newA = ((-phiP0barnewA * cp * (T0 - Tinf))/(hil * (1 - s0 / 1000)));
 		y0newA = [F0newA, 0, anew(ii), 1, phiP0barnewA, 1, b];
-		[zetaHnewA, ynewA] = ode23s(@(zetaH, y) ydiff(zetaH, y, u), [zeta0 zetaE], y0newA);
+		ynewA = ydiffExpRunner(dxhat,y0newA,u,Ns,n);
+		% [zetaHnewA, ynewA] = ode23s(@(zetaH, y) ydiff(zetaH, y, u), [zeta0 zetaE], y0newA);
 		
 		% ode for bnew (1.02 * b)
 		phiP0barnewB = bnew(ii) / (Le * (cp * (T0 - Tinf) / hil) * s0 / ((1-s0/1000) * (s0 - sinf)));
 		F0newB = ((-phiP0barnewB * cp * (T0 - Tinf))/(hil * (1 - s0 / 1000)));
 		y0newB = [F0newB, 0, a, 1, phiP0barnewB, 1, bnew(ii)];
-		[zetaHnewB, ynewB] = ode23s(@(zetaH, y) ydiff(zetaH, y, u), [zeta0 zetaE], y0newB);
+		ynewB = ydiffExpRunner(dxhat,y0newB,u,Ns,n);
+		% [zetaHnewB, ynewB] = ode23s(@(zetaH, y) ydiff(zetaH, y, u), [zeta0 zetaE], y0newB);
 		
 		ii = ii + 1
 		
@@ -66,7 +69,8 @@ function [zetaH, y] = shootingMethod(zeta0, zetaE, u, a, b, cp, T0, Tinf, hil, s
 		phiP0bar = b / (Le * (cp * (T0 - Tinf) / hil) * s0 / ((1-s0/1000) * (s0 - sinf)));
 		F0 = ((-phiP0bar * cp * (T0 - Tinf))/(hil * (1 - s0 / 1000)));
 		y0 = [F0, 0, a, 1, phiP0bar, 1, b];
-		[zetaH, y] = ode23s(@(zetaH, y) ydiff(zetaH, y, u), [zeta0 zetaE], y0);
+		y = ydiffExpRunner(dxhat,y0,u,Ns,n);
+		% [zetaH, y] = ode23s(@(zetaH, y) ydiff(zetaH, y, u), [zeta0 zetaE], y0);
 		
 		Ea = y(end, 2); 
 		Eb = y(end, 6);
