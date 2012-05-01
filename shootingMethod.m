@@ -1,4 +1,4 @@
-function [zetaH, y] = shootingMethod(zeta0, zetaE, u, a, b, cp, T0, Tinf, hil, s0, sinf)
+function [zetaH, y, anew, bnew] = shootingMethod(zeta0, zetaE, u, a, b, cp, T0, Tinf, hil, s0, sinf)
 	
 	Le = u{6};
 	
@@ -41,7 +41,9 @@ function [zetaH, y] = shootingMethod(zeta0, zetaE, u, a, b, cp, T0, Tinf, hil, s
 		
 		ii = ii + 1
 		
-		% keyboard
+		if ii == 3
+			keyboard
+		end
 			
 		% error for the anew and bnew runs of the ode solver
 		EaDa = ynewA(end, 2);

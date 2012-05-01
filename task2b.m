@@ -21,8 +21,8 @@ Le = Sc / Pr;
 % sprintf('-A*100 = %d,\n B*100 = %d,\n -Q =  %d,\n -P = %d,\n R = %d\n', -A*100, B*100, -Q, -P, R)
 
 % initial guess values for a and b
-a = 0.123 / (3*Pr)^(-1/4);
-b = -5.104;
+a = 0.3; % 0.123 / (3*Pr)^(-1/4);
+b = -1.8; % -5.104;
 
 phiP0bar = b / (Le * (cp * (T0 - Tinf) / hil) * s0 / ((1-s0/1000) * (s0 - sinf)));
 F0 = ((-phiP0bar * cp * (T0 - Tinf))/(hil * (1 - s0 / 1000)));
@@ -36,14 +36,17 @@ zeta0 = 0;
 zetaE = 5;
 
 % [zetaH, y] = ode23s(@(zetaH, y) ydiff(zetaH, y, u), [zeta0 zetaE], y0);
-dxhat = 1e-4; 
-jj = 0;
-n = 500;
-Ns = 20e4;
+Ns = 2e5;
+dxhat = zetaE / Ns;
+n = Ns / 1000;
 
-y = shootingMethodExp(dxhat, y0, Ns, n, u, a, b, cp, T0, Tinf, hil, s0, sinf);
+[yExp, anewExp, bnewExp] = shootingMethodExp(dxhat, y0, Ns, n, u, a, b, cp, T0, Tinf, hil, s0, sinf);
+
+[zetaH, y, anew, bnew] = shootingMethod(zeta0, zetaE, u, a, b, cp, T0, Tinf, hil, s0, sinf);
+
 
 %{
+jj = 0;
 ysave = zeros(Ns/n,7);
 y = ydiffExp(dxhat, y0, u);
 for ii = 1:Ns

@@ -1,4 +1,4 @@
-function y = shootingMethodExp(dxhat, y0, Ns, n, u, a, b, cp, T0, Tinf, hil, s0, sinf)
+function [y, anew, bnew] = shootingMethodExp(dxhat, y0, Ns, n, u, a, b, cp, T0, Tinf, hil, s0, sinf)
 	% wrap the explicit RK 4 and thus allow for us to then use the shotting method with it
 	Le = u{6};
 	
@@ -43,6 +43,9 @@ function y = shootingMethodExp(dxhat, y0, Ns, n, u, a, b, cp, T0, Tinf, hil, s0,
 		% [zetaHnewB, ynewB] = ode23s(@(zetaH, y) ydiff(zetaH, y, u), [zeta0 zetaE], y0newB);
 		
 		ii = ii + 1
+		% if ii == 3
+		%	keyboard
+		% end
 		
 		% keyboard
 			
@@ -53,10 +56,18 @@ function y = shootingMethodExp(dxhat, y0, Ns, n, u, a, b, cp, T0, Tinf, hil, s0,
 		EbDb = ynewB(end, 6);
 		
 		% a and b derivatives based on the anew and bnew runs
+		
 		dEaDa = (EaDa - Ea) / da;
 		dEaDb = (EaDb - Ea) / db;
 		dEbDa = (EbDa - Eb) / da;
 		dEbDb = (EbDb - Eb) / db;
+		
+		%{
+		dEaDa = (EaDa - Ea) / (0.2*a);
+		dEaDb = (EaDb - Ea) / (0.2*b);
+		dEbDa = (EbDa - Eb) / (0.2*a);
+		dEbDb = (EbDb - Eb) / (0.2*b);
+		%}
 		
 		% new guesses for a and b and their differences
 		D = dEaDa*dEbDb - dEaDb*dEbDa;
