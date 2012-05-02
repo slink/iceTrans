@@ -18,16 +18,16 @@ Q = (g3 * Tm0 * (s0 - sinf)) / (T0 - Tinf);
 P = (g1 * rhom0 * (s0 - sinf)) / (rhom * alph * abs(T0 - Tinf)^q);
 Le = Sc / Pr;
 
-% sprintf('-A*100 = %d,\n B*100 = %d,\n -Q =  %d,\n -P = %d,\n R = %d\n', -A*100, B*100, -Q, -P, R)
+%sprintf('-A*100 = %d,\n B*100 = %d,\n -Q =  %d,\n -P = %d,\n R = %d\n', -A*100, B*100, -Q, -P, R)
 
 % initial guess values for a and b
-a = 0.3; % 0.123 / (3*Pr)^(-1/4);
-b = -1.8; % -5.104;
+a =  0.123 / (3*Pr)^(-1/4); %0.3;
+b =  -5.104; %-1.8; %
 
 phiP0bar = b / (Le * (cp * (T0 - Tinf) / hil) * s0 / ((1-s0/1000) * (s0 - sinf)));
 F0 = ((-phiP0bar * cp * (T0 - Tinf))/(hil * (1 - s0 / 1000)));
 
-sprintf('phiP0bar = %d,\n F0 = %d,\n', -phiP0bar, F0)
+%sprintf('phiP0bar = %d,\n F0 = %d,\n', -phiP0bar, F0)
 
 u = {R; A; B; Q; P; Le; q};
 
@@ -40,11 +40,11 @@ Ns = 2e5;
 dxhat = zetaE / Ns;
 n = Ns / 1000;
 
-[yExp, anewExp, bnewExp] = shootingMethodExp(dxhat, y0, Ns, n, u, a, b, cp, T0, Tinf, hil, s0, sinf);
+%[yExp, anewExp, bnewExp] = shootingMethodExp(dxhat, y0, Ns, n, u, a, b, cp, T0, Tinf, hil, s0, sinf);
 
 [zetaH, y, anew, bnew] = shootingMethod(zeta0, zetaE, u, a, b, cp, T0, Tinf, hil, s0, sinf);
 
-
+legend('F','F''','F''''','\phi','\phi''','S','S''')
 %{
 jj = 0;
 ysave = zeros(Ns/n,7);
