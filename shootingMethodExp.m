@@ -9,7 +9,7 @@ function [y, anew, bnew] = shootingMethodExp(dxhat, y0, Ns, n, u, a, b, cp, T0, 
 	y = ydiffExpRunner(dxhat,y0,u,Ns,n);
 	
 	% initial errors given the guesses
-	Ea = y(end, 2); 
+	Ea = y(end, 3); 
 	Eb = y(end, 6);
 	
 	% initialization for the while loop
@@ -26,7 +26,7 @@ function [y, anew, bnew] = shootingMethodExp(dxhat, y0, Ns, n, u, a, b, cp, T0, 
 	db = 0.02*b;
 	
 	
-	while sqrt(dEaDa^2 + dEbDb^2) > 10^-5
+	while sqrt(dEaDa^2 + dEbDb^2) > 5E-3 % 10^-5
 
 		% ode for anew (1.02 * a)
 		phiP0barnewA = b / (Le * (cp * (T0 - Tinf) / hil) * s0 / ((1-s0/1000) * (s0 - sinf)));
@@ -50,9 +50,9 @@ function [y, anew, bnew] = shootingMethodExp(dxhat, y0, Ns, n, u, a, b, cp, T0, 
 		% keyboard
 			
 		% error for the anew and bnew runs of the ode solver
-		EaDa = ynewA(end, 2);
+		EaDa = ynewA(end, 3);
 		EbDa = ynewA(end, 6);
-		EaDb = ynewB(end, 2);
+		EaDb = ynewB(end, 3);
 		EbDb = ynewB(end, 6);
 		
 		% a and b derivatives based on the anew and bnew runs
@@ -83,7 +83,7 @@ function [y, anew, bnew] = shootingMethodExp(dxhat, y0, Ns, n, u, a, b, cp, T0, 
 		y = ydiffExpRunner(dxhat,y0,u,Ns,n);
 		% [zetaH, y] = ode23s(@(zetaH, y) ydiff(zetaH, y, u), [zeta0 zetaE], y0);
 		
-		Ea = y(end, 2); 
+		Ea = y(end, 3); 
 		Eb = y(end, 6);
 		
 		a = anew(ii);

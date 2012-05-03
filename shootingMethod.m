@@ -25,7 +25,7 @@ function [zetaH, y, anew, bnew] = shootingMethod(zeta0, zetaE, u, a, b, cp, T0, 
 	da = 0.02*a;
 	db = 0.02*b;
 	
-	while sqrt(Ea^2 + Eb^2) > 1e-5
+	while sqrt(Ea^2 + Eb^2) > 5E-3 % 1e-5
 
 		% ode for anew (1.02 * a)
 		phiP0barnewA = b / (Le * (cp * (T0 - Tinf) / hil) * s0 / ((1-s0/1000) * (s0 - sinf)));
