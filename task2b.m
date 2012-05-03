@@ -21,18 +21,8 @@ Le = Sc / Pr;
 %sprintf('-A*100 = %d,\n B*100 = %d,\n -Q =  %d,\n -P = %d,\n R = %d\n', -A*100, B*100, -Q, -P, R)
 
 % initial guess values for a and b
-<<<<<<< HEAD
-<<<<<<< HEAD
 a =  0.3; % 0.123 / (3*Pr)^(-1/4);
 b =  -2.04; % -5.104;
-=======
-a =  0.3; %0.123 / (3*Pr)^(-1/4); %0.3;
-b =  -2.1; %-5.104; %-1.8; %
->>>>>>> changes - sara
-=======
-a =  0.123 / (3*Pr)^(-1/4); %0.3;
-b =  -5.104; %-1.8; %
->>>>>>> Revert "changes - sara"
 
 phiP0bar = b / (Le * (cp * (T0 - Tinf) / hil) * s0 / ((1-s0/1000) * (s0 - sinf)));
 F0 = ((-phiP0bar * cp * (T0 - Tinf))/(hil * (1 - s0 / 1000)));
@@ -43,7 +33,7 @@ u = {R; A; B; Q; P; Le; q};
 
 y0 = [F0, 0, a, 1, phiP0bar, 1, b];
 zeta0 = 0;
-zetaE = 5;
+zetaE = 18;
 
 % [zetaH, y] = ode23s(@(zetaH, y) ydiff(zetaH, y, u), [zeta0 zetaE], y0);
 % Ns = 2e5;
@@ -54,6 +44,8 @@ zetaE = 5;
 
 [zetaH, y, anew, bnew] = shootingMethod(zeta0, zetaE, u, a, b, cp, T0, Tinf, hil, s0, sinf);
 
+plot(zetaH,y)
+legend('F','F''','F''''','\phi','\phi''','S','S''')
 % legend('F','F''','F''''','\phi','\phi''','S','S''')
 %{
 jj = 0;
