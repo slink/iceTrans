@@ -22,12 +22,17 @@ Le = Sc / Pr;
 
 % initial guess values for a and b
 <<<<<<< HEAD
+<<<<<<< HEAD
 a =  0.3; % 0.123 / (3*Pr)^(-1/4);
 b =  -2.04; % -5.104;
 =======
 a =  0.3; %0.123 / (3*Pr)^(-1/4); %0.3;
 b =  -2.1; %-5.104; %-1.8; %
 >>>>>>> changes - sara
+=======
+a =  0.123 / (3*Pr)^(-1/4); %0.3;
+b =  -5.104; %-1.8; %
+>>>>>>> Revert "changes - sara"
 
 phiP0bar = b / (Le * (cp * (T0 - Tinf) / hil) * s0 / ((1-s0/1000) * (s0 - sinf)));
 F0 = ((-phiP0bar * cp * (T0 - Tinf))/(hil * (1 - s0 / 1000)));
@@ -38,7 +43,7 @@ u = {R; A; B; Q; P; Le; q};
 
 y0 = [F0, 0, a, 1, phiP0bar, 1, b];
 zeta0 = 0;
-zetaE = 18;
+zetaE = 5;
 
 % [zetaH, y] = ode23s(@(zetaH, y) ydiff(zetaH, y, u), [zeta0 zetaE], y0);
 % Ns = 2e5;

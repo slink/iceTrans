@@ -1,7 +1,7 @@
 function [zetaH, y, anew, bnew] = shootingMethod(zeta0, zetaE, u, a, b, cp, T0, Tinf, hil, s0, sinf)
 	
 	Le = u{6};
-	opt=odeset('RelTol',1e-8,'AbsTol',1e-11);
+	opt=odeset('RelTol',1e-6,'AbsTol',1e-9);
 	% original values for the a and b passed to the shooting method
 	phiP0bar = b / (Le * (cp * (T0 - Tinf) / hil) * s0 / ((1-s0/1000) * (s0 - sinf)));
 	F0 = ((-phiP0bar * cp * (T0 - Tinf))/(hil * (1 - s0 / 1000)));
@@ -26,10 +26,14 @@ function [zetaH, y, anew, bnew] = shootingMethod(zeta0, zetaE, u, a, b, cp, T0, 
 	db = 0.02*b;
 	
 <<<<<<< HEAD
+<<<<<<< HEAD
 	while sqrt(Ea^2 + Eb^2) > 5E-3 % 1e-5
 =======
 	while sqrt(Ea^2 + Eb^2) > 5e-3
 >>>>>>> changes - sara
+=======
+	while sqrt(Ea^2 + Eb^2) > 1e-5
+>>>>>>> Revert "changes - sara"
 
 		% ode for anew (1.02 * a)
 		phiP0barnewA = b / (Le * (cp * (T0 - Tinf) / hil) * s0 / ((1-s0/1000) * (s0 - sinf)));
