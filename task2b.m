@@ -21,8 +21,13 @@ Le = Sc / Pr;
 %sprintf('-A*100 = %d,\n B*100 = %d,\n -Q =  %d,\n -P = %d,\n R = %d\n', -A*100, B*100, -Q, -P, R)
 
 % initial guess values for a and b
+<<<<<<< HEAD
 a =  0.3; % 0.123 / (3*Pr)^(-1/4);
 b =  -2.04; % -5.104;
+=======
+a =  0.3; %0.123 / (3*Pr)^(-1/4); %0.3;
+b =  -2.1; %-5.104; %-1.8; %
+>>>>>>> changes - sara
 
 phiP0bar = b / (Le * (cp * (T0 - Tinf) / hil) * s0 / ((1-s0/1000) * (s0 - sinf)));
 F0 = ((-phiP0bar * cp * (T0 - Tinf))/(hil * (1 - s0 / 1000)));
