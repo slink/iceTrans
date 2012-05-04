@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       157,          7]
-NotebookDataLength[     35147,        942]
-NotebookOptionsPosition[     34265,        908]
-NotebookOutlinePosition[     34620,        924]
-CellTagsIndexPosition[     34577,        921]
+NotebookDataLength[     35297,        947]
+NotebookOptionsPosition[     34415,        913]
+NotebookOutlinePosition[     34770,        929]
+CellTagsIndexPosition[     34727,        926]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -424,42 +424,43 @@ Cell[BoxData[{
         RowBox[{"x", ",", "y"}], "]"}]}], ")"}], "2"]}]}], 
   ";"}], "\[IndentingNewLine]", 
  RowBox[{
-  RowBox[{"dudx", "=", 
-   RowBox[{
+  RowBox[{
+   RowBox[{"dudx", "=", 
     RowBox[{
      RowBox[{
-      SubscriptBox["\[PartialD]", "\[Eta]"], 
-      RowBox[{"\[Psi]", "[", 
-       RowBox[{"x", ",", "\[Eta]"}], "]"}]}], "*", 
+      RowBox[{
+       SubscriptBox["\[PartialD]", "\[Eta]"], 
+       RowBox[{"\[Psi]", "[", 
+        RowBox[{"x", ",", "\[Eta]"}], "]"}]}], "*", 
+      RowBox[{
+       SubscriptBox["\[PartialD]", 
+        RowBox[{"x", ",", "y"}]], 
+       RowBox[{"\[Eta]", "[", 
+        RowBox[{"x", ",", "y"}], "]"}]}]}], "+", 
      RowBox[{
-      SubscriptBox["\[PartialD]", 
-       RowBox[{"x", ",", "y"}]], 
-      RowBox[{"\[Eta]", "[", 
-       RowBox[{"x", ",", "y"}], "]"}]}]}], "+", 
-    RowBox[{
+      RowBox[{
+       SubscriptBox["\[PartialD]", 
+        RowBox[{"x", ",", "\[Eta]"}]], 
+       RowBox[{"\[Psi]", "[", 
+        RowBox[{"x", ",", "\[Eta]"}], "]"}]}], "*", 
+      RowBox[{
+       SubscriptBox["\[PartialD]", "y"], 
+       RowBox[{"\[Eta]", "[", 
+        RowBox[{"x", ",", "y"}], "]"}]}]}], "+", 
      RowBox[{
-      SubscriptBox["\[PartialD]", 
-       RowBox[{"x", ",", "\[Eta]"}]], 
-      RowBox[{"\[Psi]", "[", 
-       RowBox[{"x", ",", "\[Eta]"}], "]"}]}], "*", 
-     RowBox[{
-      SubscriptBox["\[PartialD]", "y"], 
-      RowBox[{"\[Eta]", "[", 
-       RowBox[{"x", ",", "y"}], "]"}]}]}], "+", 
-    RowBox[{
-     RowBox[{
-      SubscriptBox["\[PartialD]", 
-       RowBox[{"\[Eta]", ",", "\[Eta]"}]], 
-      RowBox[{"\[Psi]", "[", 
-       RowBox[{"x", ",", "\[Eta]"}], "]"}]}], "*", 
-     RowBox[{
-      SubscriptBox["\[PartialD]", "x"], 
-      RowBox[{"\[Eta]", "[", 
-       RowBox[{"x", ",", "y"}], "]"}]}], "*", 
-     RowBox[{
-      SubscriptBox["\[PartialD]", "y"], 
-      RowBox[{"\[Eta]", "[", 
-       RowBox[{"x", ",", "y"}], "]"}]}]}]}]}], ";", 
+      RowBox[{
+       SubscriptBox["\[PartialD]", 
+        RowBox[{"\[Eta]", ",", "\[Eta]"}]], 
+       RowBox[{"\[Psi]", "[", 
+        RowBox[{"x", ",", "\[Eta]"}], "]"}]}], "*", 
+      RowBox[{
+       SubscriptBox["\[PartialD]", "x"], 
+       RowBox[{"\[Eta]", "[", 
+        RowBox[{"x", ",", "y"}], "]"}]}], "*", 
+      RowBox[{
+       SubscriptBox["\[PartialD]", "y"], 
+       RowBox[{"\[Eta]", "[", 
+        RowBox[{"x", ",", "y"}], "]"}]}]}]}]}], ";"}], 
   RowBox[{"(*", 
    RowBox[{
     RowBox[{
@@ -482,8 +483,9 @@ Cell[BoxData[{
       SubscriptBox["\[PartialD]", 
        RowBox[{"x", ",", "y"}]], 
       RowBox[{"\[Eta]", "[", 
-       RowBox[{"x", ",", "y"}], "]"}]}]}], ";"}], "*)"}], 
-  "\[IndentingNewLine]", 
+       RowBox[{"x", ",", "y"}], "]"}]}]}], ";"}], 
+   "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
   RowBox[{"dudy2", "=", 
    RowBox[{
     RowBox[{
@@ -519,17 +521,18 @@ Cell[BoxData[{
      RowBox[{"\[Eta]", "[", 
       RowBox[{"x", ",", "y"}], "]"}]}]}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
-  RowBox[{"dtdy2", "=", 
-   RowBox[{
+  RowBox[{
+   RowBox[{"dtdy2", "=", 
     RowBox[{
-     SubscriptBox["\[PartialD]", "\[Phi]"], "T"}], "*", " ", 
-    RowBox[{"\[Phi]", "''"}], "*", 
-    SuperscriptBox[
-     RowBox[{"(", 
-      RowBox[{
-       SubscriptBox["\[PartialD]", "y"], 
-       RowBox[{"\[Eta]", "[", 
-        RowBox[{"x", ",", "y"}], "]"}]}], ")"}], "2"]}]}], ";", " ", 
+     RowBox[{
+      SubscriptBox["\[PartialD]", "\[Phi]"], "T"}], "*", " ", 
+     RowBox[{"\[Phi]", "''"}], "*", 
+     SuperscriptBox[
+      RowBox[{"(", 
+       RowBox[{
+        SubscriptBox["\[PartialD]", "y"], 
+        RowBox[{"\[Eta]", "[", 
+         RowBox[{"x", ",", "y"}], "]"}]}], ")"}], "2"]}]}], ";"}], " ", 
   RowBox[{"(*", 
    RowBox[{
     RowBox[{
@@ -556,7 +559,8 @@ Cell[BoxData[{
            SubscriptBox["\[PartialD]", "y"], 
            RowBox[{"\[Eta]", "[", 
             RowBox[{"x", ",", "y"}], "]"}]}], ")"}], "2"]}]}], ")"}]}], ";"}],
-    "*)"}], "\[IndentingNewLine]", 
+    "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
   RowBox[{"dsdx", "=", 
    RowBox[{
     RowBox[{
@@ -616,7 +620,8 @@ Cell[BoxData[{
    3.544793254534374*^9}, 3.544988784065926*^9, {3.544988856110392*^9, 
    3.544988860304123*^9}, {3.5449889055546007`*^9, 3.544988920617093*^9}, {
    3.54498896011543*^9, 3.5449889675919933`*^9}, {3.544989096437469*^9, 
-   3.544989164870751*^9}, {3.544990499764905*^9, 3.5449906800235567`*^9}}],
+   3.544989164870751*^9}, {3.544990499764905*^9, 3.5449906800235567`*^9}, {
+   3.5450498869743547`*^9, 3.545049888192553*^9}}],
 
 Cell[CellGroupData[{
 
@@ -937,12 +942,12 @@ Cell[CellGroupData[{
 Cell[9424, 261, 1183, 39, 137, "Input"],
 Cell[10610, 302, 693, 18, 76, "Output"]
 }, Open  ]],
-Cell[11318, 323, 10282, 295, 480, "Input"],
+Cell[11318, 323, 10432, 300, 480, "Input"],
 Cell[CellGroupData[{
-Cell[21625, 622, 6397, 158, 441, "Input"],
-Cell[28025, 782, 2591, 57, 54, "Output"],
-Cell[30619, 841, 1796, 30, 49, "Output"],
-Cell[32418, 873, 1831, 32, 52, "Output"]
+Cell[21775, 627, 6397, 158, 441, "Input"],
+Cell[28175, 787, 2591, 57, 54, "Output"],
+Cell[30769, 846, 1796, 30, 49, "Output"],
+Cell[32568, 878, 1831, 32, 52, "Output"]
 }, Open  ]]
 }
 ]
