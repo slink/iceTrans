@@ -26,60 +26,116 @@
 \newcommand{\mathsym}[1]{{}}
 \newcommand{\unicode}[1]{{}}
 
-\newcounter{mathematicapage}
+
 \begin{document}
 
+\section*{Task 1c} % (fold)
+\label{sec:Task 1b}
 With the definitions of Temperature and Salinity in terms of S and $\phi$:\\
 T := $T_\infty$ + $\phi$*($T_0$-$T_\infty$)\\
 s := $s_\infty $ + S* ($s_0$ - $s_\infty $)\\
 $Gr_x$ := CGr * $x^3$ for CGr := $\frac{\rho_{m0}}{\rho_m (s_\infty)}\frac{g g_1 (s_\infty-s_0)}{(\mu/\rho_l)^2}$\\
 
-
-Imploying the similiarty transformation as given:\\ 
+\noindent Employing the similiarty transformation as given:\\ 
 $\eta$ = $\frac{y}{\sqrt{2}x} Gr_x^{1/4}$ and $\psi$ = $\frac{4}{\sqrt{2}}\frac{\mu}{\rho_l} Gr_x^{1/4} f(\eta)$\\
 
-Velocities can be found as:\\
+\noindent Velocities can be found as:\\
 u := $\partial_\eta \psi [x,\eta ]*\partial _y\eta [x,y]$ = $\frac{2 \mu  \sqrt{Gr_x} f'(\eta )}{\rho_l x}$\\
 v := $-\left(\partial _x\psi [x,\eta ]+\partial _{\eta }\psi [x,\eta ]*\partial _x\eta [x,y]\right) $ = \\ - $\frac{2 \sqrt{2} \mu  \sqrt[4]{Gr_x} \left(\frac{3 \text{CGr} x y}{4 \sqrt{2} \left(Gr_x\right)^{3/4}}-\frac{y \sqrt[4]{Gr_x}}{\sqrt{2} x^2}\right) f'(\eta )}{\rho_l}-\frac{3 \text{CGr} \mu  x^2 f(\eta )}{\sqrt{2} \rho_l \left(Gr_x\right)^{3/4}}$
 
-The advective derivatives simiarly follow as:\\ 
+\noindent The advective derivatives simiarly follow as:\\ 
 $\frac{\partial u}{\partial y}$ = $\partial _{\eta ,\eta }\psi [x,\eta ]*\left(\partial _y\eta [x,y]\right){}^2$ = $\frac{\sqrt{2} \mu  \left(Gr_x\right)^{3/4} f''(\eta )}{\rho_l x^2}$\\
 $\frac{\partial u}{\partial x}$ = $\partial _{\eta }\psi [x,\eta ]*\partial _{x,y}\eta [x,y]+\partial _{x,\eta }\psi [x,\eta ]*\partial _y\eta [x,y]+\partial
 _{\eta ,\eta }\psi [x,\eta ]*\partial _x\eta [x,y]*\partial _y\eta [x,y]$ =  $\frac{2 \mu  \sqrt{Gr_x} \left(\frac{3 \text{CGr} x y}{4 \sqrt{2} \left(Gr_x\right)^{3/4}}-\frac{y \sqrt[4]{Gr_x}}{\sqrt{2} x^2}\right) f''(\eta )}{\rho_l x}+\frac{3 \text{CGr} \mu  x f'(\eta )}{2 \rho_l \sqrt{Gr_x}}+\frac{2 \sqrt{2}\mu  \sqrt[4]{Gr_x} \left(\frac{3 \text{CGr} x}{4 \sqrt{2} \left(Gr_x\right)^{3/4}}-\frac{\sqrt[4]{Gr_x}}{\sqrt{2} x^2}\right) f'(\eta )}{\rho_l}$ \\
 
-The laplacian term is now given as:\\
+\noindent The laplacian term is now given as:\\
 $\frac{\partial^2 u}{\partial y^2}$ = $\partial _{\eta ,\eta ,\eta }\psi [x,\eta ]*\left(\partial _y\eta [x,y]\right){}^3$ = $\frac{\text{CGr} \mu  f^{(3)}(\eta )}{\rho_l}$\\
 
-The corresponding derivatives for the energy equation are:\\
+\noindent The corresponding derivatives for the energy equation are:\\
 $\frac{\partial T}{\partial x}$ = $\partial _{\phi }T*\phi '*\partial _x\eta [x,y]$ = 
 $(T_0-T_\infty) \phi ' \left(\frac{3 \text{CGr} x y}{4 \sqrt{2} \left(Gr_x\right)^{3/4}}-\frac{y \sqrt[4]{Gr_x}}{\sqrt{2} x^2}\right)$\\
 $\frac{\partial T}{\partial y}$ = $ \partial _{\phi }T*\phi '*\partial _y\eta [x,y]$ = $\frac{\sqrt[4]{Gr_x} (T_0-T_\infty) \phi '}{\sqrt{2} x}$\\
 $\frac{\partial^2 T}{\partial y^2}$ = $\partial _{\phi }T*\phi \text{''}*\left(\partial _y\eta [x,y]\right){}^2$ = $\frac{\sqrt{Gr_x} (T_0-T_\infty) \phi ''}{2 x^2}$\\
 
-The derivatives for the species equation are:\\
+\noindent The derivatives for the species equation are:\\
 $\frac{\partial s}{\partial x}$ = $\partial _Ss * S'*\partial _x\eta [x,y]$ = $S' (s_0-s_\infty) \left(\frac{3 \text{CGr} x y}{4 \sqrt{2} \left(Gr_x\right)^{3/4}}-\frac{y \sqrt[4]{Gr_x}}{\sqrt{2} x^2}\right)$\\
 $\frac{\partial s}{\partial y}$ = $\partial _Ss * S'*\partial _y\eta [x,y]$ = $\frac{\sqrt[4]{Gr_x} S' (s_0-s_\infty)}{\sqrt{2} x}$\\
 $\frac{\partial^2 s}{\partial y^2}$ = $\partial _Ss* S\text{''}*\left(\partial _y\eta [x,y]\right){}^2$ = $\frac{\sqrt{Gr_x} S'' (s_0-s_\infty)}{2 x^2}$\\
 
-Putting together the momentum equation:\\
+\noindent Putting together the momentum equation:\\
 $u*\frac{\partial u}{\partial x}+v*\frac{\partial u}{\partial y}-\frac{g(\rho_\infty -\rho )}{\rho_l}-\left(\frac{\mu }{\rho_l}\right)\frac{\partial^2 u}{\partial y^2} = 0$\\
 
-Dividing by $\left(\frac{Gr_x\mu ^2}{ \rho_l^2 x^3}\right)$ and factoring yeilds:\\
+\noindent Dividing by $\left(\frac{Gr_x\mu ^2}{ \rho_l^2 x^3}\right)$ and factoring yeilds:\\
 $-\frac{4 Gr_x f'(\eta )^2}{Gr_x}+\frac{g \rho  \rho_l}{\text{CGr} \mu^2}-\frac{g \rho_l \rho_\infty}{\text{CGr} \mu^2}-f^{(3)}(\eta )-3 f(\eta ) f''(\eta )+6 f'(\eta )^2 = 0$\\
 
-Simplifying and canceling terms, we arrive at:\\
+\noindent Simplifying and canceling terms, we arrive at:\\
 $f^{(3)}(\eta )-3 f(\eta ) f''(\eta )+2 f'(\eta )^2 + \frac{g (\rho_\infty - \rho) \rho_l}{\text{CGr} \mu^2} = 0 $\\
 
-For the energy equation:\\
+\noindent Also, the final term on the right hand side can be written as:\\ 
+ $\frac{g (\rho_\infty - \rho) \rho_l}{\text{CGr} \mu^2}$ = $\frac{(\rho_\infty - \rho)}{g_1 \rho_{m0} (s_\infty - s_0)}$\\ 
+ 
+\noindent Where: $P := \frac{g_1 \rho_{m0} (s_\infty - s_0)}{\rho_m (s_\infty) \alpha (s_\infty) |T_0 - T_\infty|^2}$\\ 
+and $W := -\frac{1}{P}\left[ (1+AS)(1+BS)|1-R-QS|^q-|R|^q-PS\right]$\\
+
+Thus, finally yeilding:\\
+\begin{center}
+	$f^{(3)}(\eta )-3 f(\eta ) f''(\eta )+2 f'(\eta )^2 + W = 0 $ for $C_2 = 1$
+\end{center}
+
+\noindent For the energy equation:\\
 $u*\frac{\partial t}{\partial x}+v*\frac{\partial t}{\partial y}-\frac{k}{\rho_l*\text{cp}}*\frac{\partial^2 t}{\partial y^2} = 0$\\
 
-Dividing through by $\left(-\frac{k \sqrt{Gr_x} (T_0-T_\infty)}{2 \text{cp} \rho_l x^2}\right)$ and simplifying:\\
-$\frac{3 \text{cp} \mu  f(\eta ) \phi'}{k}+\phi'' = 0$ where $Pr := \frac{\text{cp} \mu}{k}$\\
-
+\noindent Dividing through by $\left(-\frac{k \sqrt{Gr_x} (T_0-T_\infty)}{2 \text{cp} \rho_l x^2}\right)$ and simplifying:\\
+\begin{center}
+	$\frac{3 \text{cp} \mu  f(\eta ) \phi'}{k}+\phi'' = 0$ where $Pr := \frac{\text{cp} \mu}{k}$\\
+\end{center}
 For the species equation:\\
 $u*\frac{\partial s}{\partial x}+v*\frac{\partial s}{\partial y}-D*\frac{\partial^2 s}{\partial y^2} = 0$\\
 
-Dividing through by $\frac{D(s_0-s_\infty)\sqrt{Gr_x}}{2 x^2}$ and simplifying yeilds:\\
-$-\frac{3 \mu  f(\eta ) S'}{D \rho_l}-S'' = 0$ where $Sc := \frac{\mu}{D \rho_l} $\\
+\noindent Dividing through by $\frac{D(s_0-s_\infty)\sqrt{Gr_x}}{2 x^2}$ and simplifying yeilds:\\
+\begin{center}
+	$-\frac{3 \mu  f(\eta ) S'}{D \rho_l}-S'' = 0$ where $Sc := \frac{\mu}{D \rho_l} $
+\end{center}
+
+% section Task 1c (end)
+
+\section*{Task 1c boundary condition proof} % (fold)
+\label{sec:Task 1c}
+Begining with the equation: $\left( \frac{1000-s_0}{s_0} \right) D \rho_l \left( \frac{\partial s}{\partial y} \right)_{y = 0}$ = $1000 \frac{k}{\hat{h_{il}}}  \left (\frac{\partial T}{\partial y} \right)_{y = 0}$\\
+
+\noindent And the non-dimentional definitions for salinity and temperature as follows:\\
+\begin{center}
+	$\phi = \frac{T-T_\infty}{T_0-T_\infty}$ and $S = \frac{s - s_\infty}{s_0 - s_\infty}$
+\end{center}
+
+\noindent rearranging yeilds:\\
+\begin{center}
+	T := $T_\infty$ + $\phi$*($T_0$-$T_\infty$) and s := $s_\infty $ + S* ($s_0$ - $s_\infty $)
+\end{center}
+
+\noindent Derivatives follow as:\\
+\begin{center}
+	$\frac{\partial s}{\partial y} = \frac{\partial S}{\partial y}(s_0 - s_\infty)$ and 	$\frac{\partial T}{\partial y} = \frac{\partial \phi}{\partial y}(T_0 - T_\infty)$\\
+	
+	$\frac{\partial S}{\partial y} =  \frac{\partial S}{\partial \eta}  \frac{\partial \eta}{\partial y}$ and $\frac{\partial \phi}{\partial y} =  \frac{\partial \phi}{\partial \eta}  \frac{\partial \eta}{\partial y}$\\
+\end{center}
+
+\noindent Plugging those definitions into the original equation:\\
+$\left(\frac{1000 - s_0}{s_0}\right) \rho_l D (s_0 - s_\infty) \left(\frac{\partial S}{\partial \eta}\right)_{\eta = 0} \frac{\partial \eta}{\partial y} = 1000 \frac{k}{\hat{h_{il}}} (T_0 - T_\infty) \left(\frac{\partial \phi}{\partial \eta}\right)_{\eta = 0}\frac{\partial \eta}{\partial y}$\\
+
+\noindent If we define $S' = \frac{\partial S}{\partial \eta} $ and $ \phi ' = \frac{\partial \phi}{\partial \eta}$, we can rearrange the origninal equation as follows:\\
+
+$\frac{S'(0)}{\phi'(0)} = \frac{1000 k (T_0 - T_\infty)}{\hat{h_{il}} \rho_l D (s_0 - s_\infty)\left(\frac{1000 - s_0}{s_0}\right)}$\\
+
+\noindent and for $Pr = \frac{\nu}{\alpha} = \frac{c_p \mu}{k}$ and $Sc = \frac{\nu}{D}=\frac{\mu}{\rho D}$, then $\frac{k}{\rho_l D} = \frac{Sc}{Pr}c_p$\\
+
+We finally arrive at:\\
+\begin{center}
+	$\frac{S'(0)}{\phi'(0)} = \frac{Sc}{Pr}\frac{s_0 c_p (T_0 - T_\infty)}{\hat{h_{il}} (s_0 - s_\infty) \left(\frac{1000 - s_0}{s_0} \right) }$
+\end{center}
+
+ 
+
+% section Task 1c (end)
 
 \end{document}
