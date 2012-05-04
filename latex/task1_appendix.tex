@@ -1,0 +1,87 @@
+%% AMS-LaTeX Created by Wolfram Mathematica 8.0 : www.wolfram.com
+
+\documentclass[letterpaper, 10pt]{article}
+% --- Input encoding ---
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+\usepackage[english]{babel}
+% --- Fonts ---
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{textcomp}
+%\usepackage{times}
+%\usepackage{ae,aecompl}
+% --- Graphics ---
+\usepackage{tikz}
+\usepackage{pgf}
+\usepackage{pgfplots}
+\usepackage{pgffor}
+\usepgflibrary{plothandlers}
+\pgfplotsset{plot coordinates/math parser=true}
+\pgfplotsset{compat=newest}
+\usetikzlibrary{plotmarks}
+\usepackage{graphicx}
+\usepackage{epsfig}
+
+\usepackage{amsmath, amssymb, graphics, setspace, units, fancyvrb, hyperref}
+
+\newcommand{\mathsym}[1]{{}}
+\newcommand{\unicode}[1]{{}}
+
+\newcounter{mathematicapage}
+\begin{document}
+
+With the definitions of Temperature and Salinity in terms of S and $\phi$:\\
+T := $T_\infty$ + $\phi$*($T_0$-$T_\infty$)\\
+s := $s_\infty $ + S* ($s_0$ - $s_\infty $)\\
+$Gr_x$ := CGr * $x^3$ for CGr := $\frac{\rho_{m0}}{\rho_m (s_\infty)}\frac{g g_1 (s_\infty-s_0)}{(\mu/\rho_l)^2}$\\
+
+
+Imploying the similiarty transformation as given:\\ 
+$\eta$ = $\frac{y}{\sqrt{2}x} Gr_x^{1/4}$ and $\psi$ = $\frac{4}{\sqrt{2}}\frac{\mu}{\rho_l} Gr_x^{1/4} f(\eta)$\\
+
+Velocities can be found as:\\
+u := $\partial_\eta \psi [x,\eta ]*\partial _y\eta [x,y]$ = $\frac{2 \mu  \sqrt{Gr_x} f'(\eta )}{\rho_l x}$\\
+v := $-\left(\partial _x\psi [x,\eta ]+\partial _{\eta }\psi [x,\eta ]*\partial _x\eta [x,y]\right) $ = \\ - $\frac{2 \sqrt{2} \mu  \sqrt[4]{Gr_x} \left(\frac{3 \text{CGr} x y}{4 \sqrt{2} \left(Gr_x\right)^{3/4}}-\frac{y \sqrt[4]{Gr_x}}{\sqrt{2} x^2}\right) f'(\eta )}{\rho_l}-\frac{3 \text{CGr} \mu  x^2 f(\eta )}{\sqrt{2} \rho_l \left(Gr_x\right)^{3/4}}$
+
+The advective derivatives simiarly follow as:\\ 
+$\frac{\partial u}{\partial y}$ = $\partial _{\eta ,\eta }\psi [x,\eta ]*\left(\partial _y\eta [x,y]\right){}^2$ = $\frac{\sqrt{2} \mu  \left(Gr_x\right)^{3/4} f''(\eta )}{\rho_l x^2}$\\
+$\frac{\partial u}{\partial x}$ = $\partial _{\eta }\psi [x,\eta ]*\partial _{x,y}\eta [x,y]+\partial _{x,\eta }\psi [x,\eta ]*\partial _y\eta [x,y]+\partial
+_{\eta ,\eta }\psi [x,\eta ]*\partial _x\eta [x,y]*\partial _y\eta [x,y]$ =  $\frac{2 \mu  \sqrt{Gr_x} \left(\frac{3 \text{CGr} x y}{4 \sqrt{2} \left(Gr_x\right)^{3/4}}-\frac{y \sqrt[4]{Gr_x}}{\sqrt{2} x^2}\right) f''(\eta )}{\rho_l x}+\frac{3 \text{CGr} \mu  x f'(\eta )}{2 \rho_l \sqrt{Gr_x}}+\frac{2 \sqrt{2}\mu  \sqrt[4]{Gr_x} \left(\frac{3 \text{CGr} x}{4 \sqrt{2} \left(Gr_x\right)^{3/4}}-\frac{\sqrt[4]{Gr_x}}{\sqrt{2} x^2}\right) f'(\eta )}{\rho_l}$ \\
+
+The laplacian term is now given as:\\
+$\frac{\partial^2 u}{\partial y^2}$ = $\partial _{\eta ,\eta ,\eta }\psi [x,\eta ]*\left(\partial _y\eta [x,y]\right){}^3$ = $\frac{\text{CGr} \mu  f^{(3)}(\eta )}{\rho_l}$\\
+
+The corresponding derivatives for the energy equation are:\\
+$\frac{\partial T}{\partial x}$ = $\partial _{\phi }T*\phi '*\partial _x\eta [x,y]$ = 
+$(T_0-T_\infty) \phi ' \left(\frac{3 \text{CGr} x y}{4 \sqrt{2} \left(Gr_x\right)^{3/4}}-\frac{y \sqrt[4]{Gr_x}}{\sqrt{2} x^2}\right)$\\
+$\frac{\partial T}{\partial y}$ = $ \partial _{\phi }T*\phi '*\partial _y\eta [x,y]$ = $\frac{\sqrt[4]{Gr_x} (T_0-T_\infty) \phi '}{\sqrt{2} x}$\\
+$\frac{\partial^2 T}{\partial y^2}$ = $\partial _{\phi }T*\phi \text{''}*\left(\partial _y\eta [x,y]\right){}^2$ = $\frac{\sqrt{Gr_x} (T_0-T_\infty) \phi ''}{2 x^2}$\\
+
+The derivatives for the species equation are:\\
+$\frac{\partial s}{\partial x}$ = $\partial _Ss * S'*\partial _x\eta [x,y]$ = $S' (s_0-s_\infty) \left(\frac{3 \text{CGr} x y}{4 \sqrt{2} \left(Gr_x\right)^{3/4}}-\frac{y \sqrt[4]{Gr_x}}{\sqrt{2} x^2}\right)$\\
+$\frac{\partial s}{\partial y}$ = $\partial _Ss * S'*\partial _y\eta [x,y]$ = $\frac{\sqrt[4]{Gr_x} S' (s_0-s_\infty)}{\sqrt{2} x}$\\
+$\frac{\partial^2 s}{\partial y^2}$ = $\partial _Ss* S\text{''}*\left(\partial _y\eta [x,y]\right){}^2$ = $\frac{\sqrt{Gr_x} S'' (s_0-s_\infty)}{2 x^2}$\\
+
+Putting together the momentum equation:\\
+$u*\frac{\partial u}{\partial x}+v*\frac{\partial u}{\partial y}-\frac{g(\rho_\infty -\rho )}{\rho_l}-\left(\frac{\mu }{\rho_l}\right)\frac{\partial^2 u}{\partial y^2} = 0$\\
+
+Dividing by $\left(\frac{Gr_x\mu ^2}{ \rho_l^2 x^3}\right)$ and factoring yeilds:\\
+$-\frac{4 Gr_x f'(\eta )^2}{Gr_x}+\frac{g \rho  \rho_l}{\text{CGr} \mu^2}-\frac{g \rho_l \rho_\infty}{\text{CGr} \mu^2}-f^{(3)}(\eta )-3 f(\eta ) f''(\eta )+6 f'(\eta )^2 = 0$\\
+
+Simplifying and canceling terms, we arrive at:\\
+$f^{(3)}(\eta )-3 f(\eta ) f''(\eta )+2 f'(\eta )^2 + \frac{g (\rho_\infty - \rho) \rho_l}{\text{CGr} \mu^2} = 0 $\\
+
+For the energy equation:\\
+$u*\frac{\partial t}{\partial x}+v*\frac{\partial t}{\partial y}-\frac{k}{\rho_l*\text{cp}}*\frac{\partial^2 t}{\partial y^2} = 0$\\
+
+Dividing through by $\left(-\frac{k \sqrt{Gr_x} (T_0-T_\infty)}{2 \text{cp} \rho_l x^2}\right)$ and simplifying:\\
+$\frac{3 \text{cp} \mu  f(\eta ) \phi'}{k}+\phi'' = 0$ where $Pr := \frac{\text{cp} \mu}{k}$\\
+
+For the species equation:\\
+$u*\frac{\partial s}{\partial x}+v*\frac{\partial s}{\partial y}-D*\frac{\partial^2 s}{\partial y^2} = 0$\\
+
+Dividing through by $\frac{D(s_0-s_\infty)\sqrt{Gr_x}}{2 x^2}$ and simplifying yeilds:\\
+$-\frac{3 \mu  f(\eta ) S'}{D \rho_l}-S'' = 0$ where $Sc := \frac{\mu}{D \rho_l} $\\
+
+\end{document}
