@@ -41,7 +41,7 @@ a=anew;
 b=bnew;
 
 while sqrt(Ea^2 + Eb^2) > 1e-5
-    
+    sqrt(Ea^2 + Eb^2)
     % error for the anew and bnew runs of the ode solver
     EaDa = ynewA(end, 3);
     EaDb = ynewB(end, 3);
@@ -61,8 +61,8 @@ while sqrt(Ea^2 + Eb^2) > 1e-5
     db = (-Eb*dEaDa + Ea*dEbDa) / D;
     
     %Over relax the parameters
-    da=da*0.5;
-    db=db*0.5;
+    da=da*0.25;
+    db=db*0.25;
     anew = a + da;
     bnew = b + db;
     
@@ -72,8 +72,8 @@ while sqrt(Ea^2 + Eb^2) > 1e-5
     y0 = [F0, 0, a, 1, phiP0bar, 1, b];
     [zetaH, y] = ode23s(@(zetaH, y) ydiff(zetaH, y, u), [zeta0 zetaE], y0,opt);
     
-    Ea = y(end, 3)
-    Eb = y(end, 6)
+    Ea = y(end, 3);
+    Eb = y(end, 6);
     
     % ode for anew - uses perturbed value of a and old value for b
     phiP0barnewA = b / (Le * (cp * (T0 - Tinf) / hil) * s0 / ((1-s0/1000) * (s0 - sinf)));

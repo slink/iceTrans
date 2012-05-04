@@ -1,24 +1,10 @@
 clc, clear all, close all
-[k, hil, cp, rhol, Pr, Sc, Tinf, T0, sinf, q, rhom0, Tm0, alpha0, g, g1, g2, g3]... 
-	= getPhysprop; 
-	
-s0 = gets0_T0(T0);
-
-% calculated equations 8 through 11 with s = sinf and T = Tinf
-rhom = rhom0*(1+g1*sinf);
-alph = alpha0*(1+g2*sinf);
-Tm = Tm0*(1+g3*sinf); 
-
-rho = rhom * (1-alph*abs(Tinf-Tm)^q);
-
-R = (Tm - Tinf) / (T0 - Tinf);
-A = (g1 * rhom0 * (s0 - sinf)) / rhom;
-B = (g2 * alpha0 * (s0 - sinf)) / alph;
-Q = (g3 * Tm0 * (s0 - sinf)) / (T0 - Tinf);
-P = (g1 * rhom0 * (s0 - sinf)) / (rhom * alph * abs(T0 - Tinf)^q);
-Le = Sc / Pr;
+[k, hil, cp, rhol, rhoi, Pr, Sc, Tinf, T0, s0, sinf, q, rhom0, Tm0, alpha0, g, g1, g2, g3, CGr, u]...
+    = getPhysprop(1);
 
 %sprintf('-A*100 = %d,\n B*100 = %d,\n -Q =  %d,\n -P = %d,\n R = %d\n', -A*100, B*100, -Q, -P, R)
+
+Le = u{6};
 
 % initial guess values for a and b
 a =  0.3; % 0.123 / (3*Pr)^(-1/4);
@@ -28,8 +14,6 @@ phiP0bar = b / (Le * (cp * (T0 - Tinf) / hil) * s0 / ((1-s0/1000) * (s0 - sinf))
 F0 = ((-phiP0bar * cp * (T0 - Tinf))/(hil * (1 - s0 / 1000)));
 
 %sprintf('phiP0bar = %d,\n F0 = %d,\n', -phiP0bar, F0)
-
-u = {R; A; B; Q; P; Le; q};
 
 y0 = [F0, 0, a, 1, phiP0bar, 1, b];
 zeta0 = 0;
@@ -44,8 +28,59 @@ zetaE = 18;
 
 [zetaH, y, anew, bnew] = shootingMethod(zeta0, zetaE, u, a, b, cp, T0, Tinf, hil, s0, sinf);
 
-plot(zetaH,y)
-legend('F','F''','F''''','\phi','\phi''','S','S''')
+%plot(zetaH,y)
+%legend('F','F''','F''''','\phi','\phi''','S','S''')
+
+z=zetaH;
+F=y(:,1);
+Fp=y(:,2);
+F2p=y(:,3);
+phi=y(:,4);
+phip=y(:,5);
+S=y(:,6);
+Sp=y(:,7);
+
+figure
+plot(z,Fp,z,phi,z,S)
+legend('F''','\phi','S')
+xlabel('\zeta')
+
+s=sinf+S*(s0-sinf);
+T=Tinf+phi*(T0-Tinf);
+
+
+sPlot=s(1e-7<diff(s));
+zPlot=z(1e-7<diff(s));
+figure
+plot(zPlot,sPlot)
+ylabel('s')
+%legend('s','T')
+xlabel('\zeta')
+
+figure
+plot(z,T)
+ylabel('T')
+%legend('s','T')
+xlabel('\zeta')
+
+%Heat transfer coefficient
+x=linspace(0,1,100);
+mu=Pr*k/cp;
+Grx=rhom0/rhom*g*g1*x.^3*(sinf-s0)/(mu/rhol)^2;
+h=k*(T0-Tinf)*phip(1)*(3*Pr)^(1/4)./(sqrt(2)*x).*(Grx).^(1/4);
+
+figure
+plot(x,h)
+xlabel('x')
+ylabel('h [W/m^2/K]')
+
+
+
+%x=z/(3*Pr)^(1/4)/()
+
+
+
+
 % legend('F','F''','F''''','\phi','\phi''','S','S''')
 %{
 jj = 0;
