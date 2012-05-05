@@ -32,41 +32,56 @@ zetaE = 18;
 %legend('F','F''','F''''','\phi','\phi''','S','S''')
 
 z=zetaH;
-F=y(:,1);
-Fp=y(:,2);
-F2p=y(:,3);
+eta=z/(3*Pr)^(1/4);
+f=y(:,1)/(3*Pr)^(3/4);
+fp=y(:,2)/(3*Pr)^(1/2);
+f2p=y(:,3)/(3*Pr)^(1/4);
 phi=y(:,4);
 phip=y(:,5);
 S=y(:,6);
 Sp=y(:,7);
 
-figure
-plot(z,Fp,z,phi,z,S)
-legend('F''','\phi','S')
-xlabel('\zeta')
+%Similarity functions of eta
+figure 
+plot(eta,fp,eta,phi,eta,S)
+legend('f''','\phi','S')
+axis([0 max(eta) -0.01 1])
+xlabel('\eta')
+
+%Functions of physical variable
+x0=1;
+%y=linspace(0,0.01,100);
+y=sqrt(2)*x0/(CGr*x0^3)^(1/4)*eta;
 
 s=sinf+S*(s0-sinf);
 T=Tinf+phi*(T0-Tinf);
-
+mu=Pr*k/cp;
+u=2/x0*(mu/rhol)*(CGr*x0^3)^(1/2)*fp;
 
 sPlot=s(1e-7<diff(s));
-zPlot=z(1e-7<diff(s));
-figure
-plot(zPlot,sPlot)
-ylabel('s')
-%legend('s','T')
-xlabel('\zeta')
+yPlot=y(1e-7<diff(s));
 
 figure
-plot(z,T)
-ylabel('T')
+plot(yPlot,sPlot)
+ylabel('s [?]')
+xlabel('y [m]')
+
+figure
+plot(y,T)
+ylabel('T [^{\circ} C]')
 %legend('s','T')
-xlabel('\zeta')
+xlabel('y [m]')
+
+figure
+plot(y,u*1e3)
+ylabel('u [mm/s]')
+%legend('s','T')
+xlabel('y [m]')
 
 %Heat transfer coefficient
 x=linspace(0,1,100);
 mu=Pr*k/cp;
-Grx=rhom0/rhom*g*g1*x.^3*(sinf-s0)/(mu/rhol)^2;
+Grx=CGr*x.^3;
 h=k*(T0-Tinf)*phip(1)*(3*Pr)^(1/4)./(sqrt(2)*x).*(Grx).^(1/4);
 
 figure
