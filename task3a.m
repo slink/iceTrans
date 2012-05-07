@@ -55,12 +55,7 @@ h = ylabel('Salinity, s [${}^o/{}_{oo}$]');  set(h, 'interpreter', 'latex');
 xlabel('Distance away from interface, y [m]')
 set(gcf,'PaperPositionMode','auto');
 set(gca,'xticklabel',num2str(get(gca,'xtick')'))
-% fix based on comment at   ---- tried ' scale only axis'
-% http://win.ua.ac.be/~nschloe/comment/255#comment-255
-% 'x tick label style', '{/pgf/number format/fixed}',...
-% 'xticklabel style', '{/pgf/number format/precision=3}',...
-% '/pgfplots/try min ticks', 1,
-%'extraAxisOptions', ,...
+set(gca,'XTickLabel',['0';'0.02';'0.04';'0.06';'0.08';'0.10'])
 matlab2tikz('salinity_3a.tikz',...
  'height', '\figureheight', 'width', '\figurewidth', 'showInfo',false);
 
