@@ -13,7 +13,7 @@ scale only axis,
 xmin=0, xmax=1.4,
 xlabel={Distance away from interface, y [m]},
 ymin=-0.5, ymax=2,
-ylabel={$\text{T [\$}{}^{\circ}\text{\$ C]}$},
+ylabel={T [${}^{\circ}$ C]},
 axis on top]
 \addplot [
 color=blue,
