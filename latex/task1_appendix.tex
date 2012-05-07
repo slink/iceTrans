@@ -29,12 +29,19 @@
 
 \begin{document}
 	
-	\section*{Task 1a} % (fold)
-	\label{sec:Task 1a}
-	As salt can not penetrate the interface: $\dot{m}_s'' = Y_s \dot{m}'' + j_s = 0$ and $j_s = -\rho_l D \frac{\partial Y_s}{\partial y}\big|_{y=0}$ where $Y_s = \frac{s}{1000}$ is the mass fraction of salt present and at the interface $Y_s = \frac{s_0}{1000}$.\\
+	\section*{Task 1} % (fold)
+	\label{sec:Task 1}
+	
+	\subsection*{Task 1a} % (fold)
+	\label{ssec:Task 1a}
+	Drawing a control volume around the interfce at y = 0 with the assumption that no salt can penetrate the ice we can write out the mass flux equation as:\\ 
+	$\dot{m}_s'' = Y_s \dot{m}'' + j_s = 0$ and $j_s = -\rho_l D \frac{\partial Y_s}{\partial y}\big|_{y=0}$\\ 
+	where $Y_s := \frac{s}{1000}$\\ 
+	and the mass fraction of salt present at the interface is $Y_s = \frac{s_0}{1000}$.\\
 		
 	\noindent $Y_s \dot{m}'' = \rho_l D \frac{\partial Y_s}{\partial y}\big|_{y=0}$\\
-	\noindent $\dot{m}'' = \rho_l V_l + \rho_s V_s$ where $V_l = V_0$ and $V_s = 0$ as salt has no velocity.\\
+	\noindent $\dot{m}'' = \rho_l V_l + \rho_s V_s$\\
+	where $V_l = V_0$ and $V_s = 0$ as salt has no bulk velocity.\\
 	
 	\noindent $Y_s \rho_l V_0 = \rho_l D \frac{\partial Y_s}{\partial y}\big|_{y=0}$\\
 	
@@ -48,10 +55,10 @@
 	
 	Thus, $C_1 = 1000 $\\
 	
-	% section Task 1a (end)
+	% subsection Task 1a (end)
 	
-	\section*{Task 1b} % (fold)
-	\label{sec:Task 1b}
+	\subsection*{Task 1b} % (fold)
+	\label{ssec:Task 1b}
 
 	\begin{align*}
 		\rho_m[s]&:=\rho_{m0}(1+g_1 s)\\
@@ -68,7 +75,7 @@
 		P&:=\frac{g_1*\rho_{m0}(s_0-s_\infty)}{\rho_m[s_\infty]*\alpha[s_\infty]*|T_0-T_\infty|^q}\\
 	\end{align*}
 
-	Plugging all of these equations into the right and left hand sides of the relation to be proves is as follows:
+	Employing these equations and subsituting them into the right and left hand sides of the relation to be proved is as follows:
 
 	\begin{multline*}
 		RHS\\
@@ -87,11 +94,11 @@
 		(1+g_2 s_\infty) \alpha_0 |T_{m0}+g_3 s_\infty T_{m0}-T_\infty|^q)
 	\end{multline*}
 
-	Comparing the RHS to the LHS of of the equation and simplifying we are thus able to show their equivalence.
-	% section Task 1b (end)
+	Comparing the RHS to the LHS of of the equation, eliminting common factors, nd simplifying we are thus able to show that the right hand side and left hand side are equivalent.
+	% subsection Task 1b (end)
 
-	\section*{Task 1c} % (fold)
-	\label{sec:Task 1b}
+	\subsection*{Task 1c} % (fold)
+	\label{ssec:Task 1b}
 	With the definitions of Temperature and Salinity in terms of S and $\phi$:\\
 	T := $T_\infty$ + $\phi$*($T_0$-$T_\infty$)\\
 	s := $s_\infty $ + S* ($s_0$ - $s_\infty $)\\
@@ -158,10 +165,10 @@
 		$-\frac{3 \mu  f(\eta ) S'}{D \rho_l}-S'' = 0$ where $Sc := \frac{\mu}{D \rho_l} $
 	\end{center}
 
-	% section Task 1c (end)
+	% subsection Task 1c (end)
 
-	\section*{Task 1c boundary condition proof} % (fold)
-	\label{sec:Task 1c}
+	\subsection*{Task 1c boundary condition proof} % (fold)
+	\label{ssec:Task 1c}
 	Begining with the equation: $\left( \frac{1000-s_0}{s_0} \right) D \rho_l \left( \frac{\partial s}{\partial y} \right)_{y = 0}$ = $1000 \frac{k}{\hat{h_{il}}}  \left (\frac{\partial T}{\partial y} \right)_{y = 0}$\\
 
 	\noindent And the non-dimentional definitions for salinity and temperature as follows:\\
@@ -196,6 +203,8 @@
 
  
 
-	% section Task 1c (end)
-
+	% subsection Task 1c (end)
+	
+	% section Task 1 (end)
+	
 \end{document}
