@@ -1,0 +1,80 @@
+\documentclass[letterpaper, 10pt]{article}
+% --- Input encoding ---
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+\usepackage[english]{babel}
+% --- Fonts ---
+\usepackage[T1]{fontenc}
+\usepackage{lmodern, textcomp}
+% --- Graphics ---
+\usepackage{tikz, pgf, pgfplots, pgffor}
+\usepgflibrary{plothandlers}
+\pgfplotsset{plot coordinates/math parser=true}
+\pgfplotsset{compat=newest}
+\usetikzlibrary{plotmarks}
+\usepackage{graphicx, epsfig}
+\usepackage{amsmath, amssymb, graphics, setspace, units, fancyvrb, hyperref, comment}
+% --- Code ---
+\usepackage{listings, color, textcomp}
+\definecolor{listinggray}{gray}{0.9}
+\definecolor{lbcolor}{rgb}{0.9,0.9,0.9}
+\lstset{
+	backgroundcolor=, %\color{lbcolor},
+	tabsize=4,
+	rulecolor=,
+	language=matlab,
+        basicstyle=\scriptsize,
+        upquote=true,
+        aboveskip={1.5\baselineskip},
+        columns=fixed,
+        showstringspaces=false,
+        extendedchars=true,
+        breaklines=true,
+        prebreak = \raisebox{0ex}[0ex][0ex]{\ensuremath{\hookleftarrow}},
+        frame=single,
+        showtabs=false,
+        showspaces=false,
+        showstringspaces=false,
+        identifierstyle=\ttfamily,
+        keywordstyle=\color[rgb]{0,0,1},
+        commentstyle=\color[rgb]{0.133,0.545,0.133},
+        stringstyle=\color[rgb]{0.627,0.126,0.941},
+}
+
+\newcommand{\mathsym}[1]{{}}
+\newcommand{\unicode}[1]{{}}
+
+\title{An Investigation of Polar Ice Melt Rates due to Buoyancy Driven Convention}
+\author{Larus Thorvaldsson \and Shmuel Link}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+\newpage
+	
+	\section*{Division of Workload}
+	\begin{tabular}[t]{c c c}
+	\hline
+	Task & Diffficulty/Time (1-3) & Completed By\\
+	\hline\hline
+	Implementation of model & 2 & Larus/Shmuel\\
+	Derivations & 3 & Larus/Shmuel\\
+	Writing of Report & 2 & Larus/Shmuel\\
+	\hline
+	\end{tabular}
+	
+	\include{task1_appendix}
+	
+	\appendix
+	\section*{Code Listing for Task 2b} % (fold)
+	\label{sec:Code Listing for Task 2b}
+		\lstinputlisting{../getPhysprop.m}
+		\lstinputlisting{../shootingMethod.m}
+		\lstinputlisting{../ydiff.m}
+		\lstinputlisting{../task3b.m}
+		
+	% section Code Listing for Task 2b (end)
+	
+	
+\end{document}
