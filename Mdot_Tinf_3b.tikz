@@ -1,0 +1,29 @@
+% This file was created by matlab2tikz v0.2.0.
+% Copyright (c) 2008--2012, Nico Schlömer <nico.schloemer@gmail.com>
+% All rights reserved.
+% 
+% 
+% 
+\begin{tikzpicture}
+
+\begin{axis}[%
+width=\figurewidth,
+height=\figureheight,
+scale only axis,
+xmin=0, xmax=2,
+xlabel={$T_\infty$ },
+ymin=20, ymax=200,
+ylabel={$\dot{M}$ [cm/day]},
+axis on top]
+\addplot [
+color=blue,
+solid,
+mark=square,
+mark options={solid}
+]
+coordinates{
+ (0,32.6376212341137)(1,112.823692691045)(2,193.987351366488) 
+};
+
+\end{axis}
+\end{tikzpicture}

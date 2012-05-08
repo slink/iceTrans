@@ -36,21 +36,51 @@ for i=1:N
     CGrvec(i)=CGr;
 end
 
+v1=v1*3600*24*100;
 
-figure
+figure('Position',[500 300 1.4*400 400]);
 plot(Tinfvec(1:3),hvec(1:3),'-s')
+h1 = xlabel('$T_\infty [^{\circ}C]$ '); set(h1, 'interpreter', 'latex');
+h2 = ylabel('$h [W/m^2/s]$'); set(h2, 'interpreter', 'latex');
+%h1 = legend('F''','$\phi$','S'); set(h1, 'interpreter', 'latex');
+xlim([0 2])
+set(gcf,'PaperPositionMode','auto');
+matlab2tikz('h_Tinf_3b.tikz',...
+ 'height', '\figureheight', 'width', '\figurewidth', 'showInfo',false);
+%close
 
-figure
+figure('Position',[500 300 1.4*400 400]);
 plot(Tinfvec(1:3),v1(1:3),'-s')
+h1 = xlabel('$T_\infty$ '); set(h1, 'interpreter', 'latex');
+h2 = ylabel('$\dot{M}$ [cm/day]'); set(h2, 'interpreter', 'latex');
+%h1 = legend('F''','$\phi$','S'); set(h1, 'interpreter', 'latex');
+xlim([0 2])
+set(gcf,'PaperPositionMode','auto');
+matlab2tikz('Mdot_Tinf_3b.tikz',...
+ 'height', '\figureheight', 'width', '\figurewidth', 'showInfo',false);
+%close
+
+
+figure('Position',[500 300 1.4*400 400]);
+plot([10 20],hvec([1 4]),'-s')
+h1 = xlabel('$s_\infty$ '); set(h1, 'interpreter', 'latex');
+h2 = ylabel('$h [W/m^2/s]$'); set(h2, 'interpreter', 'latex');
+set(gcf,'PaperPositionMode','auto');
+matlab2tikz('h_sinf_3b.tikz',...
+ 'height', '\figureheight', 'width', '\figurewidth', 'showInfo',false);
+%close
+
+figure('Position',[500 300 1.4*400 400]);
+plot([10 20],v1([1 4]),'-s')
+h1 = xlabel('$s_\infty$ '); set(h1, 'interpreter', 'latex');
+h2 = ylabel('$\dot{M}$ [cm/day]'); set(h2, 'interpreter', 'latex');
+set(gcf,'PaperPositionMode','auto');
+matlab2tikz('Mdot_sinf_3b.tikz',...
+ 'height', '\figureheight', 'width', '\figurewidth', 'showInfo',false);
+%close
 
 %Change in melt rate from T_inf=0 to T_inf=2
 dv1T=(v1(3)-v1(1))/2;
-
-figure
-plot([10 20],hvec([1 4]),'-s')
-
-figure
-plot([10 20],v1([1 4]),'-s')
 
 %Change in melt rate from s_inf=10 to s_inf=20
 dv1s=(v1(4)-v1(1))/10;
@@ -58,3 +88,4 @@ dv1s=(v1(4)-v1(1))/10;
 
 %Part 3c, compare Grashoff number with pg. 372 in Keys. Turbulence for Gr >
 %10^9-10^10
+CGrvec

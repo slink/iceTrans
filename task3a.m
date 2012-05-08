@@ -4,8 +4,8 @@ clc, clear all, close all
     = getPhysprop(3);
 	
 Le = u{6};
-a =  0.3;
-b =  -2.04;
+a =  0.4;
+b =  -1.8;
     
 phiP0bar = b / (Le * (cp * (T0 - Tinf) / hil) * s0 / ((1-s0/1000) * (s0 - sinf)));
 F0 = ((-phiP0bar * cp * (T0 - Tinf))/(hil * (1 - s0 / 1000)));
@@ -39,7 +39,7 @@ close
 	
 %Functions of physical variable
 x0 = 1; % y = linspace(0,0.01,100);
-y = sqrt(2)*x0/(CGr*x0^3)^(1/4)*eta;
+y = sqrt(2)*x0/((CGr*x0^3)^(1/4))*eta;
 
 s = sinf+S*(s0-sinf);
 T = Tinf+phi*(T0-Tinf);

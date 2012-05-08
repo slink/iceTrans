@@ -53,5 +53,66 @@
 		\label{fig:temperture_3a}
 	\end{figure}
 	
+	\begin{figure}[h]
+		\begin{center}
+			\setlength\figureheight{6cm} 
+			\setlength\figurewidth{9cm} 
+			\input{../h_Tinf_3b.tikz}
+		\end{center}
+		\caption{Mean heat transfer coefficient over $\unit[1]{m}$ long section of ice as a function of ambient temperature.}
+		\label{fig:h_Tinf}
+	\end{figure}
 	
+	\begin{figure}[h]
+		\begin{center}
+			\setlength\figureheight{6cm} 
+			\setlength\figurewidth{9cm} 
+			\input{../Mdot_Tinf_3b.tikz}
+		\end{center}
+		\caption{Mean ice melting rate over a $\unit[1]{m}$ long section of ice as a function of ambient temperature.}
+		\label{fig:Mdot_Tinf}
+	\end{figure}
+
+	\begin{figure}[h]
+		\begin{center}
+			\setlength\figureheight{6cm} 
+			\setlength\figurewidth{9cm} 
+			\input{../h_sinf_3b.tikz}
+		\end{center}
+		\caption{Mean heat transfer coefficient over $\unit[1]{m}$ long section of ice as a function of ambient salinity.}
+		\label{fig:h_sinf}
+	\end{figure}
+
+	\begin{figure}[h]
+		\begin{center}
+			\setlength\figureheight{6cm} 
+			\setlength\figurewidth{9cm} 
+			\input{../Mdot_sinf_3b.tikz}
+		\end{center}
+		\caption{Mean ice melting rate over a $\unit[1]{m}$ long section of ice as a function of ambient salinity.}
+		\label{fig:Mdot_sinf}
+	\end{figure}
+
+
+	Ice melting rate can be related to the injection velocity of fresh water $v_0$, by taking into account the expansion of water as it melts. This gives
+	\begin{equation*}
+	  v_1 = \frac{\rho_l}{\rho_i}(1-s_0/1000)v_0
+	\end{equation*}
+
+	By taking the average of the ice melting rate over a $\unit[1]{m}$ long surface the numbers in figure~\ref{something} are generated.
+
+	\begin{table}
+	  \centering
+	  \begin{tabular}{lllll}
+	    $T_\infty [\unit{^\circ C}]$ & $s_\infty [\permil]$ & $\text{CGr} [\unit{m^{-3}}]$ & $h_{av} [\unit{W/m^2/K}]$ & $\dot{M}_{av} [\unit{cm/day}]$ \\
+	    \hline
+	    $0$ & $10$ & $2912$ & $1.157$ & $32.64$ \\
+	    $1$ & $10$ & $7341$ & $3.998$ & $112.8$ \\
+	    $2$ & $10$ & $10870$ & $6.874$ & $194.0$ \\
+	    $0$ & $20$ & $8192$ & $2.074$ & $58.54$ \\
+	  \end{tabular}
+	  \caption{<+Caption text+>}
+	  \label{tab:<+label+>}
+	\end{table}<++>
+
 % section Task 3a (end)

@@ -1,7 +1,7 @@
 function [zetaH, y, anew, bnew] = shootingMethod(zeta0, zetaE, u, a, b, cp, T0, Tinf, hil, s0, sinf)
 
 Le = u{6};
-opt=odeset('RelTol',1e-3,'AbsTol',1e-6);
+opt=odeset('RelTol',1e-5,'AbsTol',1e-8);
 
 % initialization for the while loop
 %dEaDa = 1;
@@ -61,8 +61,8 @@ while sqrt(Ea^2 + Eb^2) > 1e-5
     db = (-Eb*dEaDa + Ea*dEbDa) / D;
     
     %Over relax the parameters
-    da=da*0.25;
-    db=db*0.25;
+    da=da*0.3;
+    db=db*0.3;
     anew = a + da;
     bnew = b + db;
     
