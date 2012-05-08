@@ -1,39 +1,44 @@
-\subsection*{Task 2a}
-We are now to change the coordinates from $\eta$ to $\zeta$ using the following transformation
-\begin{align*}
-  F(\zeta) =& (3\text{Pr})^{3/4} f(\eta), \qquad \zeta = (3 \text{Pr})^{1/4} \\
-  \bar{\phi}(\zeta) = \phi (\eta) \qquad \bar{S}(\zeta) = S(\eta )
-\end{align*}
+\section*{Task 2} % (fold)
+\label{sec:Task 2}
+	\subsection*{Task 2a}
+	We are now to change the coordinates from $\eta$ to $\zeta$ using the following transformation
+	\begin{align*}
+	  F(\zeta) =& (3\text{Pr})^{3/4} f(\eta), \qquad \zeta = (3 \text{Pr})^{1/4} \\
+	  \bar{\phi}(\zeta) = \phi (\eta) \qquad \bar{S}(\zeta) = S(\eta )
+	\end{align*}
 
-we can begin by applying the chain rule to the derivatives. Since $\zeta$ is a linear function of $\eta$ all terms including higher derivatives than the first one drop out.
-\begin{align*}
-  \frac{\partial^3 f}{\partial \eta^3}=& \left( \frac{\partial \zeta}{\partial \eta} \right)^3 \frac{\partial^3 f}{\partial \zeta^3}=(3 \text{Pr})^{3/4}f'''=F'''\\
-  \frac{\partial^2 f}{\partial \eta^2}=& \left( \frac{\partial \zeta}{\partial \eta} \right)^2 \frac{\partial^2 f}{\partial \zeta^2}=(3 \text{Pr})^{1/2}f''=(3 \text{Pr})^{-1/4} F''\\
-  \frac{\partial f}{\partial \eta}=& \left( \frac{\partial \zeta}{\partial \eta} \right) \frac{\partial f}{\partial \zeta}=(3 \text{Pr})^{1/4}f'=(3 \text{Pr})^{-1/2}F'
-\end{align*}
-Inserting those relations into the momentum equation gives
-\begin{align*}
-  &f'''+3f\cdot f'' -2(f')^2 + 1 \bar{W} = 0 \\
-  \Rightarrow& F''' +\frac{1}{\text{Pr}}F\cdot F'' -\frac{2}{3}\frac{1}{\text{Pr}}+\bar{W}=0 
-\end{align*}
-and when the Prandtl number approaches infinity this gives
-\begin{equation*}
-  \lim_{\text{Pr}\rightarrow \infty} (\text{Mom}) = F'''+\bar{W} =0
-\end{equation*}
+	we can begin by applying the chain rule to the derivatives. Since $\zeta$ is a linear function of $\eta$ all terms including higher derivatives than the first one drop out.
+	\begin{align*}
+	  \frac{\partial^3 f}{\partial \eta^3}=& \left( \frac{\partial \zeta}{\partial \eta} \right)^3 \frac{\partial^3 f}{\partial \zeta^3}=(3 \text{Pr})^{3/4}f'''=F'''\\
+	  \frac{\partial^2 f}{\partial \eta^2}=& \left( \frac{\partial \zeta}{\partial \eta} \right)^2 \frac{\partial^2 f}{\partial \zeta^2}=(3 \text{Pr})^{1/2}f''=(3 \text{Pr})^{-1/4} F''\\
+	  \frac{\partial f}{\partial \eta}=& \left( \frac{\partial \zeta}{\partial \eta} \right) \frac{\partial f}{\partial \zeta}=(3 \text{Pr})^{1/4}f'=(3 \text{Pr})^{-1/2}F'
+	\end{align*}
+	Inserting those relations into the momentum equation gives
+	\begin{align*}
+	  &f'''+3f\cdot f'' -2(f')^2 + 1 \bar{W} = 0 \\
+	  \Rightarrow& F''' +\frac{1}{\text{Pr}}F\cdot F'' -\frac{2}{3}\frac{1}{\text{Pr}}+\bar{W}=0 
+	\end{align*}
+	and when the Prandtl number approaches infinity this gives
+	\begin{equation*}
+	  \lim_{\text{Pr}\rightarrow \infty} (\text{Mom}) = F'''+\bar{W} =0
+	\end{equation*}
 
-This can similarly be done for the energy equation
-\begin{align*}
-  \frac{\partial^2 \phi}{\partial \eta^2}=& \left( \frac{\partial \zeta}{\partial \eta} \right)^2 \frac{\partial^2 \phi}{\partial \zeta^2}=(3 \text{Pr})^{1/2}\phi'' =(3 \text{Pr})^{1/2}\bar{\phi}'' \\
-  \frac{\partial \phi}{\partial \eta}=& \left( \frac{\partial \zeta}{\partial \eta} \right) \frac{\partial \phi}{\partial \zeta}=(3 \text{Pr})^{1/4}\phi' =(3 \text{Pr})^{1/4}\bar{\phi}' 
-\end{align*}
-Applying this to the energy equation gives
-\begin{align*}
-  \bar{\phi}''+F\cdot\phi'&=0
-\end{align*}
+	This can similarly be done for the energy equation
+	\begin{align*}
+	  \frac{\partial^2 \phi}{\partial \eta^2}=& \left( \frac{\partial \zeta}{\partial \eta} \right)^2 \frac{\partial^2 \phi}{\partial \zeta^2}=(3 \text{Pr})^{1/2}\phi'' =(3 \text{Pr})^{1/2}\bar{\phi}'' \\
+	  \frac{\partial \phi}{\partial \eta}=& \left( \frac{\partial \zeta}{\partial \eta} \right) \frac{\partial \phi}{\partial \zeta}=(3 \text{Pr})^{1/4}\phi' =(3 \text{Pr})^{1/4}\bar{\phi}' 
+	\end{align*}
+	Applying this to the energy equation gives
+	\begin{align*}
+	  \bar{\phi}''+F\cdot\phi'&=0
+	\end{align*}
 
-The change from $\eta$ to $\zeta$ coordinates is exactly the same for the mass conservation equation, which gives
-\begin{equation*}
-  \bar{S}''+\frac{\text{Sc}}{\text{Pr}}F\cdot \bar{S}'=0
-\end{equation*}
+	The change from $\eta$ to $\zeta$ coordinates is exactly the same for the mass conservation equation, which gives
+	\begin{equation*}
+	  \bar{S}''+\frac{\text{Sc}}{\text{Pr}}F\cdot \bar{S}'=0
+	\end{equation*}
+
+	
+% section Task 2 (end)
 
 
