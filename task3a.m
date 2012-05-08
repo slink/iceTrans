@@ -50,12 +50,13 @@ sPlot = s(1e-7<diff(s));
 yPlot = y(1e-7<diff(s));
 
 figure('Position',[500 300 1.4*400 400]);
-plot(yPlot,sPlot)
+plot(yPlot * 100,sPlot)
 h = ylabel('Salinity, s [${}^o/{}_{oo}$]');  set(h, 'interpreter', 'latex');
-xlabel('Distance away from interface, y [m]')
+xlabel('Distance away from interface, y [cm]')
 set(gcf,'PaperPositionMode','auto');
-set(gca,'xticklabel',num2str(get(gca,'xtick')'))
-set(gca,'XTickLabel',['0';'0.02';'0.04';'0.06';'0.08';'0.10'])
+% axis([0 1.1*max(yPlot) 5 11])
+% set(gca,'xticklabel',num2str(get(gca,'xtick')'))
+% set(gca,'XTickLabel',['0';'0.02';'0.04';'0.06';'0.08';'0.10'])
 matlab2tikz('salinity_3a.tikz',...
  'height', '\figureheight', 'width', '\figurewidth', 'showInfo',false);
 
