@@ -43,6 +43,7 @@
 		\label{fig:salinity_3a}
 	\end{figure}
 	
+\section*{Task 3b and 3c}<++>
 	\begin{figure}[h]
 		\begin{center}
 			\setlength\figureheight{6cm} 
@@ -99,20 +100,33 @@
 	  v_1 = \frac{\rho_l}{\rho_i}(1-s_0/1000)v_0
 	\end{equation*}
 
-	By taking the average of the ice melting rate over a $\unit[1]{m}$ long surface the numbers in figure~\ref{something} are generated.
+	By taking the average of the ice melting rate over a $\unit[1]{m}$ long surface the numbers in figure~\ref{tab:thermRes} are generated.
 
 	\begin{table}
 	  \centering
 	  \begin{tabular}{lllll}
-	    $T_\infty [\unit{^\circ C}]$ & $s_\infty [\permil]$ & $\text{CGr} [\unit{m^{-3}}]$ & $h_{av} [\unit{W/m^2/K}]$ & $\dot{M}_{av} [\unit{cm/day}]$ \\
+	    $T_\infty [\unit{^\circ C}]$ & $s_\infty [\permil]$ & $C_{\text{Gr}} [\unit{m^{-3}}]$ & $h_{av} [\unit{W/m^2/K}]$ & $\dot{M}_{av} [\unit{cm/day}]$ \\
 	    \hline
 	    $0$ & $10$ & $2912$ & $1.157$ & $32.64$ \\
 	    $1$ & $10$ & $7341$ & $3.998$ & $112.8$ \\
 	    $2$ & $10$ & $10870$ & $6.874$ & $194.0$ \\
 	    $0$ & $20$ & $8192$ & $2.074$ & $58.54$ \\
+	    \hline
 	  \end{tabular}
-	  \caption{<+Caption text+>}
-	  \label{tab:<+label+>}
-	\end{table}<++>
+	  \caption{Table of melting rate, heat transfer coefficient and the Grasshoff number constant for different values of $T_\infty$ and $s_\infty$.}
+	  \label{tab:thermRes}
+	\end{table}
+
+	According to table~\ref{tab:thermRes}, the melting rate seems to be more sensitive to temperature than salinity, where by change of $ \unit[1]{^\circ C}$ in ambient temperature results in $\unit[80.67]{cm/day}$, but a change of $10 \promil$ in salinity results in $\unit[25.90]{cm/day}$ melting rate.
+
+	In the same table it is also possible to see the factor of the Grasshof number that remains constant over the length of the surface and is defined as
+	\begin{equation*}
+	  C_{\text{Gr}}= \frac{\rho_{m0}}{\rho_{m}(s_{\infty})}\cdot \frac{g g_1 (s_{\infty}-s_0}{(\mu/\rho_l)^2} = \text{Gr}/x^3
+	\end{equation*}
+
+	In Kays, Crawford and Wiegand the criteria for a turbulent flow is define as a Grashoff number in the region of $10^9$ and $10^10$. Since the highest value of $C_{\text{Gr}}$ for the given $T_{\infty}$ and $s_{\infty}$ is $\approx 10^5$ it can be concuded that for all reasonable values of $x$ the flow will remain laminar.
+
+
+
 
 % section Task 3a (end)
