@@ -63,6 +63,7 @@ matlab2tikz('salinity_3a.tikz',...
 
 figure('Position',[500 300 1.4*400 400]);
 plot(y,T)
+xlim([0 max(y)])
 h = ylabel('T [${}^{\circ}$ C]'); set(h, 'interpreter', 'latex');
 xlabel('Distance away from interface, y [m]')
 set(gcf,'PaperPositionMode','auto');
@@ -72,6 +73,7 @@ close
 
 figure('Position',[500 300 1.4*400 400]);
 plot(y,u*1e3)
+xlim([0 max(y)])
 ylabel('u [mm/s]')
 xlabel('Distance away from interface, y [m]')
 set(gcf,'PaperPositionMode','auto');

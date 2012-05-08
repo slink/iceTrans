@@ -10,7 +10,7 @@
 width=\figurewidth,
 height=\figureheight,
 scale only axis,
-xmin=0, xmax=1.4,
+xmin=0, xmax=1.00167428611575,
 xlabel={Distance away from interface, y [m]},
 ymin=-0.5, ymax=2,
 ylabel={T [${}^{\circ}$ C]},
