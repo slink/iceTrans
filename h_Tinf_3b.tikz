@@ -12,7 +12,7 @@ height=\figureheight,
 scale only axis,
 xmin=0, xmax=2,
 xlabel={$T_\infty [^{\circ}C]$ },
-ymin=1, ymax=7,
+ymin=76, ymax=94,
 ylabel={$h [W/m^2/s]$},
 axis on top]
 \addplot [
@@ -22,7 +22,7 @@ mark=square,
 mark options={solid}
 ]
 coordinates{
- (0,1.1565873919785)(1,3.99816088148382)(2,6.8743773691225) 
+ (0,76.5157002444772)(1,91.4854908630637)(2,93.9848248246571) 
 };
 
 \end{axis}

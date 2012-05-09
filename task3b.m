@@ -29,10 +29,10 @@ for i=1:N
     [zetaH, y, anew, bnew] = shootingMethod(zeta0, zetaE, u, a, b, cp, T0, Tinf, hil, s0, sinf);
     
     x=linspace(1e-3,1,100);
-    dTdy=mean(y(1,5)*(T0-Tinf)*(3*Pr)^(1/4)./(sqrt(2)*x).*(CGr*x.^3).^(1/4));
-    hvec(i)=k*dTdy;
-    v0(i)=k/((1-s0*1e-3)*rhol*hil)*dTdy;
-    v1(i)=v0(i)*rhol*(1-1e-3*s0)/rhoi;
+    dTdy=mean(y(1,5)*(3*Pr)^(1/4)./(sqrt(2)*x).*(CGr*x.^3).^(1/4)); % took out (T0-Tinf)
+    hvec(i)= -k*dTdy;
+    v0(i)=k/((1-s0*1e-3)*rhol*hil*1000)*abs(dTdy); % since dTdy is negtive and hil is in KJ
+    v1(i)=v0(i)*rhol/rhoi; % took out (1-1e-3*s0)
     CGrvec(i)=CGr;
 end
 
