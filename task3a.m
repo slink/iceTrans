@@ -61,7 +61,7 @@ matlab2tikz('salinity_3a.tikz',...
 close
 
 figure('Position',[500 300 1.4*400 400]);
-plot(y,T)
+plot(yax,T)
 xlim([0 max(yax)])
 h = ylabel('T [${}^{\circ}$ C]'); set(h, 'interpreter', 'latex');
 xlabel('Distance away from interface, y [m]')
@@ -71,7 +71,7 @@ matlab2tikz('temperture_3a.tikz',...
 close
 
 figure('Position',[500 300 1.4*400 400]);
-plot(y,u*1e3)
+plot(yax,u*1e3)
 xlim([0 max(yax)])
 ylabel('u [mm/s]')
 xlabel('Distance away from interface, y [m]')

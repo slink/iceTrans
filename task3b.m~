@@ -33,7 +33,7 @@ for i=1:N
     hvec(i)= -k*dTdy;
     %v0(i)=k/((1-s0*1e-3)*rhol*hil*1000)*abs(dTdy); % since dTdy is negtive and hil is in KJ
     %v1(i)=v0(i)*rhol/rhoi; % took out (1-1e-3*s0)
-    v1(i)=-k*dTdy/rhoi/(hil*1000)*(T0-Tinf);
+    v1(i)=-k*dTdy/rhoi/hil
     CGrvec(i)=CGr;
 end
 
