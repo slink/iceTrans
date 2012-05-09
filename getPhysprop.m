@@ -44,7 +44,7 @@ P = (g1 * rhom0 * (s0 - sinf)) / (rhom * alph * abs(T0 - Tinf)^q);
 Le = Sc / Pr;
 u = {R; A; B; Q; P; Le; q};
 
-mu=Pr*k/cp;
+mu=Pr*k/(cp*1000);
 CGr=rhom0/rhom*g*g1*(sinf-s0)/(mu/rhol)^2;
 
 end
