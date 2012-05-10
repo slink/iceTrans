@@ -95,9 +95,9 @@
 	\end{figure}
 
 
-	Ice melting rate can be related to the injection velocity of fresh water $v_0$, by taking into account the expansion of water as it melts. This gives
+	Ice melting rate can be related to the heat transfer into the system and the change in density, by taking into account the expansion of water as it melts. This gives
 	\begin{equation*}
-	  v_1 = \frac{\rho_l}{\rho_i}(1-s_0/1000)v_0
+	  v_1 = -k\frac{T_0-T_{\infty}}{\rho_i h_{il}} \left| \frac{dT}{dy} \right|_{y=0}
 	\end{equation*}
 
 	By taking the average of the ice melting rate over a $\unit[1]{m}$ long surface the numbers in figure~\ref{tab:thermRes} are generated.
@@ -107,24 +107,24 @@
 	  \begin{tabular}{rrrrr}
 	    $T_\infty [\unit{^\circ C}]$ & $s_\infty [\permil]$ & $C_{\text{Gr}} [\unit{m^{-3}}]$ & $h_{av} [\unit{W/m^2/K}]$ & $\dot{M}_{av} [\unit{cm/day}]$ \\
 	    \hline
-	    $0$ & $10$ & $2912$ & $1.157$ & $32.64$ \\
-	    $1$ & $10$ & $7341$ & $3.998$ & $112.8$ \\
-	    $2$ & $10$ & $10870$ & $6.874$ & $194.0$ \\
-	    $0$ & $20$ & $8192$ & $2.074$ & $58.54$ \\
+	    $0$ & $10$ & $2.91\cdot10^{9}$ & $76.52$ & $1.032$ \\
+	    $1$ & $10$ & $7.73\cdot10^{9}$ & $91.48$ & $3.568$ \\
+	    $2$ & $10$ & $1.09\cdot10^{10}$ & $93.98$ & $6.134$ \\
+	    $0$ & $20$ & $8.82\cdot10^{9}$ & $74.97$ & $1.851$ \\
 	    \hline
 	  \end{tabular}
 	  \caption{Table of melting rate, heat transfer coefficient and the Grasshoff number constant for different values of $T_\infty$ and $s_\infty$.}
 	  \label{tab:thermRes}
 	\end{table}
 
-	According to table~\ref{tab:thermRes}, the melting rate seems to be more sensitive to temperature than salinity, where by change of $ \unit[1]{^\circ C}$ in ambient temperature results in $\unit[80.67]{cm/day}$, but a change of $10 \permil$ in salinity results in $\unit[25.90]{cm/day}$ melting rate.
+	According to table~\ref{tab:thermRes}, the melting rate seems to be more sensitive to temperature than salinity, where by change of $ \unit[1]{^\circ C}$ in ambient temperature results in $\unit[2.55]{cm/day}$, but a change of $10 \permil$ in salinity results in $\unit[0.819]{cm/day}$ melting rate.
 
 	In the same table it is also possible to see the factor of the Grasshof number that remains constant over the length of the surface and is defined as
 	\begin{equation*}
-	  C_{\text{Gr}}= \frac{\rho_{m0}}{\rho_{m}(s_{\infty})}\cdot \frac{g g_1 (s_{\infty}-s_0}{(\mu/\rho_l)^2} = \text{Gr}/x^3
+	  C_{\text{Gr}}= \frac{\rho_{m0}}{\rho_{m}(s_{\infty})}\cdot \frac{g g_1 (s_{\infty}-s_0)}{(\mu/\rho_l)^2} = \text{Gr}/x^3
 	\end{equation*}
 
-	In Kays, Crawford and Wiegand the criteria for a turbulent flow is define as a Grashoff number in the region of $10^9$ and $10^10$. Since the highest value of $C_{\text{Gr}}$ for the given $T_{\infty}$ and $s_{\infty}$ is $\approx 10^5$ it can be concuded that for all reasonable values of $x$ the flow will remain laminar.
+	In Kays, Crawford and Wiegand the criteria for a turbulent flow is define as a Grashoff number in the region of $10^9$ and $10^10$. As can be seen from table~\ref{tab:thermRes} the $C_{\text{Gr}}$ for the given $T_{\infty}$ and $s_{\infty}$ is exactly in that transitioning region for $x_0=\unit[1]{m}$, the flow is probably laminar at the leading edge, and probably becomes fully turbulent for higer values of $x$.
 
 
 

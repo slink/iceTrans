@@ -61,20 +61,20 @@ matlab2tikz('salinity_3a.tikz',...
 close
 
 figure('Position',[500 300 1.4*400 400]);
-plot(yax,T)
-xlim([0 max(yax)])
+plot(100*yax,T)
+xlim([0 max(100*yax)])
 h = ylabel('T [${}^{\circ}$ C]'); set(h, 'interpreter', 'latex');
-xlabel('Distance away from interface, y [m]')
+xlabel('Distance away from interface, y [cm]')
 set(gcf,'PaperPositionMode','auto');
 matlab2tikz('temperture_3a.tikz',...
  'height', '\figureheight', 'width', '\figurewidth', 'showInfo',false);
 close
 
 figure('Position',[500 300 1.4*400 400]);
-plot(yax,u*1e3)
-xlim([0 max(yax)])
+plot(100*yax,u*1e3)
+xlim([0 max(100*yax)])
 ylabel('u [mm/s]')
-xlabel('Distance away from interface, y [m]')
+xlabel('Distance away from interface, y [cm]')
 set(gcf,'PaperPositionMode','auto');
 matlab2tikz('velocity_3a.tikz',...
  'height', '\figureheight', 'width', '\figurewidth', 'showInfo',false);

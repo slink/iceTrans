@@ -12,7 +12,7 @@ height=\figureheight,
 scale only axis,
 xmin=10, xmax=20,
 xlabel={$s_\infty$ },
-ymin=-1.9, ymax=-0.9,
+ymin=1, ymax=1.9,
 ylabel={$\dot{M}$ [cm/day]},
 axis on top]
 \addplot [
@@ -22,7 +22,7 @@ mark=square,
 mark options={solid}
 ]
 coordinates{
- (10,-1.03209220509675)(20,-1.85109370892186) 
+ (10,1.03209220509675)(20,1.85109370892186) 
 };
 
 \end{axis}
